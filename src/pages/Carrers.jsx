@@ -1,5 +1,5 @@
 import React from 'react'
-import {useLoaderData,Outlet} from 'react-router-dom'
+import {useLoaderData,Outlet,Link} from 'react-router-dom'
 function Carrers() {
   const data=useLoaderData();
   console.log(data);
@@ -8,11 +8,12 @@ function Carrers() {
         <div>Carrers</div>
         <div>
             {
-                data.map(({title})=>{
-                    return (<div>
-                          {title}
-                    </div>)
-                })
+                data.map(data=>(
+                    <Link to={data.id.toString()} key={data.id}>
+                          <p>{data.title}</p>
+                          <p>Based in {data.location}</p>
+                    </Link>
+                ))
             }
         </div>
         <div>

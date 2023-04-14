@@ -2,6 +2,7 @@
 
 import React from 'react'
 import {NavLink,Outlet} from 'react-router-dom';
+import BreadCrumbs from '../components/BreadCrumbs';
 function Layout() {
   return (
     <div className='root-layout'>
@@ -13,6 +14,7 @@ function Layout() {
                    <NavLink to="help">Help</NavLink>
                    <NavLink to="carrers">Carrers</NavLink>
                </nav>
+          <BreadCrumbs/>
           </header>
           <main>
             <Outlet/>

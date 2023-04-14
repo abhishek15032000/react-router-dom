@@ -1,41 +1,46 @@
-
-import { BrowserRouter
-  ,Route
-  ,createBrowserRouter,
+import {
+  BrowserRouter,
+  Route,
+  createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider
+  RouterProvider,
 } from "react-router-dom";
-import Home from './pages/Home';
+import Home from "./pages/Home";
 import About from "./pages/About";
 import Layout from "./Layout/Layout";
 import HelpLayout from "./Layout/HelpLayout";
 import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import Carrers,{LoaderFunction} from "./pages/Carrers";
-import CarrersDetails,{CarrerLoaderDetails} from "./pages/CarrersDetails";
-import CarrersError from './pages/CarrersError';
-const router=createBrowserRouter(
+import Carrers, { LoaderFunction } from "./pages/Carrers";
+import CarrersDetails, { CarrerLoaderDetails } from "./pages/CarrersDetails";
+import CarrersError from "./pages/CarrersError";
+const router = createBrowserRouter(
   createRoutesFromElements(
-      <Route path="/" element={<Layout/>}>
-           <Route path="/" element={<Home/>}></Route>
-           <Route path="about" element={<About />}></Route>
-           <Route path="help" element={<HelpLayout/>}>
-                <Route path="faq" element={<Faq/>}/>
-                <Route path="contact" element={<Contact/>}/>  
-           </Route>
-           <Route path="carrers" element={<Carrers/>} loader={LoaderFunction}>
-               <Route path=":id" element={<CarrersDetails/>} loader={CarrerLoaderDetails} errorElement={<CarrersError/>}/>
-           </Route>
-           <Route path="*" element={<NotFound/>}/>
+    <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Home />}></Route>
+      <Route path="about" element={<About />}></Route>
+      <Route path="help" element={<HelpLayout />}>
+        <Route path="faq" element={<Faq />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
+      <Route path="carrers" element={<Carrers />} loader={LoaderFunction}>
+        <Route
+          path=":id"
+          element={<CarrersDetails />}
+          loader={CarrerLoaderDetails}
+          errorElement={<CarrersError />}
+        />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Route>
   )
-)
+);
 
 function App() {
   return (
-    // <BrowserRouter> 
-    //        <main> 
+    // <BrowserRouter>
+    //        <main>
     //         <header>
     //              <h1>Jobrouter</h1>
     //              <Link to="/">Home</Link>
@@ -49,9 +54,8 @@ function App() {
     //        </main>
     // </BrowserRouter>
 
-     <RouterProvider router={router} />
-  )
-    
+    <RouterProvider router={router} />
+  );
 }
 
-export default App
+export default App;

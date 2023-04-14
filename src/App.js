@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Carrers,{LoaderFunction} from "./pages/Carrers";
 import CarrersDetails,{CarrerLoaderDetails} from "./pages/CarrersDetails";
+import CarrersError from './pages/CarrersError';
 const router=createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<Layout/>}>
@@ -24,7 +25,7 @@ const router=createBrowserRouter(
                 <Route path="contact" element={<Contact/>}/>  
            </Route>
            <Route path="carrers" element={<Carrers/>} loader={LoaderFunction}>
-               <Route path=":id" element={<CarrersDetails/>} loader={CarrerLoaderDetails}/>
+               <Route path=":id" element={<CarrersDetails/>} loader={CarrerLoaderDetails} errorElement={<CarrersError/>}/>
            </Route>
            <Route path="*" element={<NotFound/>}/>
       </Route>

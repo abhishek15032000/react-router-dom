@@ -18,6 +18,9 @@ function CarrersDetails() {
 export const CarrerLoaderDetails= async ({params})=>{
     const {id}=params;
     const res=await fetch("http://localhost:4000/careers/"+id);
+    if(!res.ok){
+      throw Error("THIS CARRER DOES NOT EXIST ");
+    }
     return res.json();
 }
 
